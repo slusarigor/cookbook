@@ -1,24 +1,27 @@
-# README
+# Cookbook
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Getting Started
 
-Things you may want to cover:
+Before you clone this repository, be sure you have install the following:
+* Postgres -v ~10.3
 
-* Ruby version
+## Local Development
 
-* System dependencies
+Clone the latest code from github
 
-* Configuration
+`git clone git@github.com:slusarigor/cookbook.git`
 
-* Database creation
+Change to the source directory
 
-* Database initialization
+`cd cookbook`
 
-* How to run the test suite
+Run setup script:
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+bin/setup
+rails s
+```
 
-* Deployment instructions
+## Urls
 
-* ...
+[Staging](https://findcookbook.herokuapp.com)
