@@ -10,6 +10,9 @@ require "minitest/rails/capybara"
 # Uncomment for awesome colorful output
 #require "minitest/pride"
 
+Capybara.default_driver = :rack_test
+Capybara.javascript_driver = :webkit
+
 class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   fixtures :all

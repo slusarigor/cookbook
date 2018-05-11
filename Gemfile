@@ -39,7 +39,7 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
   gem 'minitest-rails-capybara'
-
+  gem 'capybara-webkit'
 end
 
 group :development do
@@ -57,3 +57,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'rubocop'
 gem 'pg'
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
+gem 'rails-jquery-autocomplete'
