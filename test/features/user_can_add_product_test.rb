@@ -28,10 +28,23 @@ feature "UserCanAddProduct" do
     assert_equal 2, page.all(@input_selector).count
   end
 
-  scenario "when user start typing product then suggestions appear to pick one", js: true do
+  scenario "when user starts typing product then suggestions appear to pick one", js: true do
     visit root_path
     input = page.find(@input_selector)
     input.set('eg').trigger('keyup')
-    page.find('.product-autocomplete')
+    page.find('.ui-autocomplete')
+  end
+
+  scenario "when user picks product from suggestions then recipe appears", js: true do
+    visit root_path
+    product_name = 'egg'
+    product_suggestion_min = product_name.slice(0, 2)
+    input = page.find(@input_selector)
+    input.set(product_suggestion_min).trigger('keyup')
+    suggestion_list = page.find('.ui-autocomplete')
+    suggestion_list.find('div', text: product_name).trigger('click')
+
+    assert_equal product_name, input.value
+    page.find('.recipe')
   end
 end
