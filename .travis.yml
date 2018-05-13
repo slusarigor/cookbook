@@ -15,5 +15,3 @@ deploy:
   app: findcookbook
   api_key:
     secure: 'e6a99b82-a847-4c06-b476-8caaa01aa795'
-  on:
-    all_branches: true
