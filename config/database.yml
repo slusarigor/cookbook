@@ -14,7 +14,7 @@ default: &default
   encoding: unicode
   pool: 5
   username: postgres
-  password: postgres
+  password: <%= ENV['DB_PASSWORD'] %>
 
 development:
   <<: *default

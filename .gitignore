@@ -16,7 +16,8 @@
 /.idea
 /vendor/bundle
 /spec/examples.txt
-
+/.env.development
+/.env.test
 /node_modules
 /yarn-error.log
 
