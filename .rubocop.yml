@@ -13,3 +13,6 @@ Documentation:
 
 Style/FrozenStringLiteralComment:
   Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
