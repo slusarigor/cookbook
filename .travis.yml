@@ -4,6 +4,7 @@ before_script:
   - psql -c 'create database cookbook_test;' -U postgres
 dist: trusty
 language: ruby
+cache: bundler
 rvm:
   - 2.5.0
 script:
