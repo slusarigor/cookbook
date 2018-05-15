@@ -4,7 +4,14 @@ class RecipesController < ApplicationController
   # GET /recipes
   # GET /recipes.json
   def index
-    @recipes = Recipe.all
+    if product_titles
+      @recipes = Recipe.find_by_products product_titles
+    else
+      @recipes = Recipe.all
+    end
+
+    template = request.xhr? ? 'recipes/_recipe' : 'recipes/index'
+    render template: template
   end
 
   # GET /recipes/1
@@ -70,5 +77,9 @@ class RecipesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def recipe_params
       params.require(:recipe).permit(:title, :description, :image)
+    end
+
+    def product_titles
+      params[:products] && params[:products].split(',')
     end
 end

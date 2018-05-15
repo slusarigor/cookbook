@@ -19,8 +19,3 @@ DatabaseCleaner.strategy = :transaction
 class ActiveSupport::TestCase
   include FactoryBot::Syntax::Methods
 end
-
-# class ActionDispatch::IntegrationTest
-#   include Capybara::DSL
-#   include Capybara::Assertions
-# end

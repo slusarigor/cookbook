@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :product do
-    title 'Banana'
-    image 'http://logo.png'
+    title { Faker::Food.ingredient }
+    image { Faker::Avatar.image }
   end
 end

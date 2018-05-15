@@ -13,9 +13,7 @@
   </thead>
 
   <tbody>
-    <% @recipes.each do |recipe| %>
-      <%= render 'recipes/recipe', recipe: recipe %>
-    <% end %>
+      <%= render 'recipes/recipe', recipes: @recipes %>
   </tbody>
 </table>
 

@@ -36,6 +36,8 @@ feature "UserCanAddProduct" do
   end
 
   scenario "when user picks product from suggestions then recipe appears", js: true do
+    create(:recipe, :with_products, titles: [:egg, :milk])
+    create(:recipe, :with_products, titles: [:egg, :banana])
     visit root_path
     product_name = 'egg'
     product_suggestion_min = product_name.slice(0, 2)

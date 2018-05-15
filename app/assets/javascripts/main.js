@@ -1,5 +1,26 @@
 $(function(){
     var products = ['egg', 'milk', 'cheese'];
+    var productChange = function(e)
+    {
+        var product_titles = [];
+
+        $('.product_title').each(function(i){
+            var title = $(this).val();
+            product_titles.push(title);
+        });
+        console.log(product_titles);
+        var url = '/recipes?products=' + product_titles.join(',')
+       $.ajax({
+           url: url,
+           success: function(response){
+               $('body').append(response);
+           },
+           fail: function(response){
+               $('body').prepend(response);
+           }
+       })
+    };
+
     var fn = function(){
         var self = $(this);
         var clone = self.clone();
@@ -15,6 +36,7 @@ $(function(){
    $('input.product_title')
        .on('blur', fn)
        .autocomplete({
-           source: products
+           source: products,
+           select: productChange
        });
 });
