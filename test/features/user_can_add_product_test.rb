@@ -1,6 +1,8 @@
 require "test_helper"
 
 feature "UserCanAddProduct" do
+  include WaitForAjax
+
   before do
     @input_selector = 'input.product_title'
   end
@@ -43,10 +45,13 @@ feature "UserCanAddProduct" do
     product_suggestion_min = product_name.slice(0, 2)
     input = page.find(@input_selector)
     input.set(product_suggestion_min).trigger('keyup')
+
     suggestion_list = page.find('.ui-autocomplete')
-    suggestion_list.find('div', text: product_name).trigger('click')
+    suggestion_list.find('div').click
+    #page.driver.console_messages
+    wait_for_ajax
 
     assert_equal product_name, input.value
-    page.find('.recipe')
+    assert_equal 2, page.all('div.recipe').count
   end
 end

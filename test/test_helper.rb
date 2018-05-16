@@ -14,6 +14,10 @@ Dir[Rails.root.join("test/support/**/*.rb")].each { |f| require f }
 
 Capybara.default_driver = :rack_test
 Capybara.javascript_driver = :webkit
+Capybara::Webkit.configure do |config|
+  config.allow_url("robohash.org")
+end
+
 DatabaseCleaner.strategy = :transaction
 
 class ActiveSupport::TestCase

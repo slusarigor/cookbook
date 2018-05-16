@@ -11,7 +11,7 @@ class RecipesController < ApplicationController
     end
 
     template = request.xhr? ? 'recipes/_recipe' : 'recipes/index'
-    render template: template
+    render template: template, layout: false
   end
 
   # GET /recipes/1
