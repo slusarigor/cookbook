@@ -1,18 +1,18 @@
-require "test_helper"
+require 'test_helper'
 
-feature "UserCanAddProduct" do
+feature 'UserCanAddProduct' do
   include WaitForAjax
 
   before do
     @input_selector = 'input.product_title'
   end
-  scenario "displays text and input to enter product" do
+  scenario 'displays text and input to enter product' do
     visit root_path
-    page.must_have_content "What products do you have?"
+    page.must_have_content 'What products do you have?'
     page.find(@input_selector)
   end
 
-  scenario "when user enters less than 2 characters then nothing happened", js: true do
+  scenario 'when user enters less than 2 characters then nothing happened', js: true do
     visit root_path
     input = page.find(@input_selector)
 
@@ -21,7 +21,7 @@ feature "UserCanAddProduct" do
     assert_equal 1, page.all(@input_selector).count
   end
 
-  scenario "when user enters enough characters then additional input appears", js: true do
+  scenario 'when user enters enough characters then additional input appears', js: true do
     visit root_path
     input = page.find(@input_selector)
 
@@ -30,16 +30,16 @@ feature "UserCanAddProduct" do
     assert_equal 2, page.all(@input_selector).count
   end
 
-  scenario "when user starts typing product then suggestions appear to pick one", js: true do
+  scenario 'when user starts typing product then suggestions appear to pick one', js: true do
     visit root_path
     input = page.find(@input_selector)
     input.set('eg').trigger('keyup')
     page.find('.ui-autocomplete')
   end
 
-  scenario "when user picks product from suggestions then recipe appears", js: true do
-    create(:recipe, :with_products, titles: [:egg, :milk])
-    create(:recipe, :with_products, titles: [:egg, :banana])
+  scenario 'when user picks product from suggestions then recipe appears', js: true do
+    create(:recipe, :with_products, titles: %w[egg milk])
+    create(:recipe, :with_products, titles: %w[egg banana])
     visit root_path
     product_name = 'egg'
     product_suggestion_min = product_name.slice(0, 2)
@@ -48,10 +48,9 @@ feature "UserCanAddProduct" do
 
     suggestion_list = page.find('.ui-autocomplete')
     suggestion_list.find('div').click
-    #page.driver.console_messages
     wait_for_ajax
 
     assert_equal product_name, input.value
-    assert_equal 2, page.all('div.recipe').count
+    assert_equal 2, page.all('.recipe').count
   end
 end

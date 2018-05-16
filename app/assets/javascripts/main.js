@@ -32,7 +32,7 @@ $(function(){
        $.ajax({
            url: url,
            success: function(response){
-               $('body').append(response);
+               $('#recipes_body').html(response);
            },
            fail: function(response){
                $('body').prepend(response);

@@ -3,6 +3,6 @@ class Recipe < ApplicationRecord
 
   def self.find_by_products(*titles)
     titles.flatten!
-    self.distinct.joins(:products).where('products.title' => titles)
+    distinct.joins(:products).where('products.title' => titles)
   end
 end

@@ -12,6 +12,7 @@
  *
  *= require jquery-ui/core
  *= require jquery-ui/theme
+ *= require bootstrap.min.css
  *= require_tree .
  *= require_self
  */
