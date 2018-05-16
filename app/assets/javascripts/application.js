@@ -12,4 +12,8 @@
 //
 //= require rails-ujs
 //= require turbolinks
+//= require jquery
+//= require jquery-ui/widgets/autocomplete
+//= require autocomplete-rails
+//= require bootstrap
 //= require_tree .
