@@ -1,5 +1,16 @@
+env:
+  global:
+    - BUNDLE_JOBS=4
+    - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
+    - QMAKE=/usr/lib/x86_64-linux-gnu/qt5/bin/qmake
 addons:
   postgresql: 9.6
+  apt:
+    sources:
+      - ubuntu-sdk-team
+    packages:
+      - libqt5webkit5-dev
+      - qtdeclarative5-dev
 before_script:
   - psql -c 'create database cookbook_test;' -U postgres
 dist: trusty
@@ -9,7 +20,7 @@ rvm:
   - 2.5.0
 script:
   - bundle exec rails db:migrate RAILS_ENV=test
-  - bundle exec rake
+  - xvfb-run bundle exec rake
   - bundle exec rubocop
 deploy:
   provider: heroku
