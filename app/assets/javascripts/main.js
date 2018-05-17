@@ -1,11 +1,10 @@
 $(function(){
-    console.log('Hello world!');
-    var products = ['egg', 'milk', 'cheese'];
+    var product_list = $('#products_container').data('product-list');
     var bindInput = function(input)
     {
         input.on('blur', fn)
             .autocomplete({
-                source: products,
+                source: product_list,
                 select: productChange
             });
     };
@@ -27,7 +26,6 @@ $(function(){
 
             if(self[0] !== input[0]) product_titles.push(title);
         });
-        console.log(product_titles);
         var url = '/recipes?products=' + product_titles.join(',');
        $.ajax({
            url: url,

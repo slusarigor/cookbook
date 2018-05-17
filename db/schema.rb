@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20180513114010) do
     t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["title"], name: "index_products_on_title", unique: true
   end
 
   create_table "products_recipes", force: :cascade do |t|
@@ -35,6 +36,7 @@ ActiveRecord::Schema.define(version: 20180513114010) do
     t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["title"], name: "index_recipes_on_title"
   end
 
   create_table "users", force: :cascade do |t|

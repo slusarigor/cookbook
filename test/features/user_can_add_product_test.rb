@@ -31,6 +31,7 @@ feature 'UserCanAddProduct' do
   end
 
   scenario 'when user starts typing product then suggestions appear to pick one', js: true do
+    create(:recipe, :with_products, titles: %w[egg milk])
     visit root_path
     input = page.find(@input_selector)
     input.set('eg').trigger('keyup')

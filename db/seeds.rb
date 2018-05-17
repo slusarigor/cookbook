@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+FactoryBot.create(:recipe, :with_products, titles: %w[egg milk])
+FactoryBot.create(:recipe, :with_products, titles: %w[milk banana potato egg])
+FactoryBot.create(:recipe, :with_products, titles: %w[milk cherry])

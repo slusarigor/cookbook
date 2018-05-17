@@ -11,7 +11,7 @@ FactoryBot.define do
     trait :with_products do
       after :create do |recipe, options|
         options.titles.each do |title|
-          recipe.products << create(:product, title: title)
+          recipe.products << (Product.find_by(title: title) || create(:product, title: title))
         end
       end
     end

@@ -1,9 +1,8 @@
 class RecipesController < ApplicationController
-  # GET /recipes
   def index
     @recipes = Recipe.find_by_products product_titles
 
-    render template: 'recipes/_recipe', layout: false
+    render partial: 'recipes/recipe'
   end
 
   private
