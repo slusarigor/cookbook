@@ -14,6 +14,10 @@ Documentation:
 
 Style/FrozenStringLiteralComment:
   Enabled: false
-
 Style/ClassAndModuleChildren:
   Enabled: false
+Style/ExpandPathArguments:
+  Enabled: false
+Metrics/BlockLength:
+  Exclude:
+   - 'test/**/*.rb'
