@@ -30,5 +30,5 @@ deploy:
     secure: 'e6a99b82-a847-4c06-b476-8caaa01aa795'
   run:
     - "rake db:migrate"
-    - "rake db:seeds"
+    - "rake db:seed"
     - restart
