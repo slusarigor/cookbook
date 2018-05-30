@@ -8,4 +8,8 @@
 
 FactoryBot.create(:recipe, :with_products, titles: %w[egg milk])
 FactoryBot.create(:recipe, :with_products, titles: %w[milk banana potato egg])
-FactoryBot.create(:recipe, :with_products, titles: %w[milk cherry])
+FactoryBot.create(:recipe, :with_products, titles: %w[milk sausage])
+FactoryBot.create(:recipe, :with_products, titles: %w[poach bread])
+FactoryBot.create(:recipe, :with_products, titles: %w[salt pork])
+FactoryBot.create(:recipe, :with_products, titles: %w[bacon broccoli salad])
+FactoryBot.create(:recipe, :with_products, titles: %w[chicken mint])
