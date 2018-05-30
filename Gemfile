@@ -17,6 +17,7 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'rails-jquery-autocomplete'
 gem 'bootstrap', '~> 4.1.1'
+gem 'factory_bot_rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -30,7 +31,6 @@ group :development, :test do
   gem 'dotenv-rails'
   gem 'minitest-rails-capybara'
   gem 'capybara-webkit'
-  gem 'factory_bot_rails'
   gem 'database_cleaner'
   gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 end
