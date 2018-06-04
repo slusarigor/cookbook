@@ -19,7 +19,7 @@ gem 'rails-jquery-autocomplete'
 gem 'bootstrap', '~> 4.1.1'
 gem 'factory_bot_rails'
 gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
-
+gem 'rack-cors', :require => 'rack/cors'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

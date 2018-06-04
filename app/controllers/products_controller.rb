@@ -1,6 +1,10 @@
 class ProductsController < ApplicationController
   def index
-    products = Product.all
+    unless params[:q]
+      products = Product.all
+    else
+      products = Product.where('title LIKE ?', "%#{params[:q]}%")
+    end
 
     render json: products
   end

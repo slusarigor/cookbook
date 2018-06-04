@@ -2,7 +2,7 @@ class RecipesController < ApplicationController
   def index
     @recipes = Recipe.find_by_products product_titles
 
-    render partial: 'recipes/recipe'
+    render json: @recipes
   end
 
   private
